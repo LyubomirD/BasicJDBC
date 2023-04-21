@@ -1,0 +1,122 @@
+Main, basic commands in SQL
+
+1. Main functions
+SELECT, UPDATE, DELETE, INSERT, WHERE
+
+Note: no need to write in uppercase, but is easy to differentiate between SQL and other
+
+2. Most important commands
+SELECT - extracts data from a database
+UPDATE - updates data in a database
+DELETE - deletes data from a database
+INSERT INTO - inserts new data into a database
+CREATE DATABASE - creates a new database
+ALTER DATABASE - modifies a database
+CREATE TABLE - creates a new table
+ALTER TABLE - modifies a table
+DROP TABLE - deletes a table
+CREATE INDEX - creates an index (search key)
+DROP INDEX - deletes an index
+
+3. SELECT command
+syntax: SELECT column1, column2 FROM table;
+SELECT * FROM table;
+* - select all fields, columns
+
++ SELECT DISTINCT
+statement is used to return only distinct (different) values
+syntax: SELECT DISTINCT column1, column2 FROM table;
+
+4. INSERT INTO command
+syntax: INSERT INTO table (column1, column2, ...) VALUES (value1, value2, ...);
+INSERT INTO table VALUES (value1, value2, ...);
+
+Note: when inserting values close them around with ''
+Example: ... VALUES ('SomeonesName', 'Age', ...);
+
+5. UPDATE
+syntax: UPDATE table SET column1 = value1, column2 = value2 ... WHERE condition;
+UPDATE table SET column1 = value1;
+
+6. DELETE command
+syntax: DELETE FROM table WHERE condition;
+DELETE FROM table;
+
+!NOTE: WHERE
+clause is used to filter records/ fulfill a specified condition
+
+WHERE + UPDATE
+specifies which record to update, if omitted will update all records in the table with the same input record
+
+WHERE + DELETE
+specifies which record to delete, if omitted will delete all record in the table
+
+7. Connection
+- interface
+- to establish connection with database for the java application
+- provides methods for transaction like:
+commit(), rollback(), setAutoCommit(), setTransactionIsolation()...
+
+8. Statement and PreparedStatement difference
+8.1 Statement
+- base interface
+- cannot accept parameters
+- when we use static SQL
+- when running only one SQL query is ideal
+
+Used for:
+- CREATE, ALTER, DROP statements
+Performance:
+- low
+- cannot read/ write binary data
+
+8.2 PreparedStatement
+- interface
+- accepts input parameters
+- want to use SQL multiple times
+
+Used for:
+- queries that are executed multiple times
+Performance:
+- better than Statement
+- can read/ write binary data
+
+9. What is a "static SQL"
+- it is called static because the SQL statements in the program are static
+(they do not change each time the program is run)
+
+10. DatabaseMetaData
+- interface
+Note: data about data is known as metadata
+- provides methods to get inf. about the DB you connected with
+Example: DB name, DB version, column max ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
