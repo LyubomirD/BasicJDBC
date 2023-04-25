@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Connect_Postgres {
     public static void main(String[] args) throws SQLException {
-        String jdbcURL = "jdbc:postgresql://localhost:PORT/testDatabase";
-        String username = "<postgres>";
-        String password = "<hidden>";
+        String jdbcURL = "jdbc:postgresql://localhost:5432/testdatabase";
+        String username = "postgres";
+        String password = "";
 
         Scanner scanner = new Scanner(System.in);
         SelectStatement select = new SelectStatement();

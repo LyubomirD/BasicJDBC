@@ -30,7 +30,7 @@ public class SelectStatement {
     }
 
     private static String selectValues() {
-        return "SELECT * FROM table2";
+        return "SELECT * FROM people";
     }
 }
 
