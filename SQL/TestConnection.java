@@ -34,7 +34,7 @@ public class TestConnection {
             Connection connection = DriverManager.getConnection(jdbcURL, username, password);
             System.out.println("Connect to PostgreSQL server" +
                     "\nTo stop the connection with the server simply type: CLOSE" +
-                    "\nWhat command to execute: SELECT, INSERT, UPDATE, DELETE, DELETE BETWEEN");
+                    "\nWhat command to execute: SELECT, INSERT, UPDATE, DELETE");
 
             String command;
             do {
@@ -51,9 +51,6 @@ public class TestConnection {
                         break;
                     case "DELETE":
                         deleteStatement.getDelete(connection);
-                        break;
-                    case "DELETE BETWEEN":
-                        deleteStatement.getDeleteBetween(connection);
                         break;
                 }
             } while (!command.equalsIgnoreCase("CLOSE"));

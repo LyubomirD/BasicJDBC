@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class DeleteStatement {
+public class DeleteStatement extends StatementDuplicateCode{
 
     private final Scanner scanner;
 
@@ -14,48 +14,13 @@ public class DeleteStatement {
     }
 
     public void getDelete(Connection connection) throws SQLException {
-        setDelete(connection);
-    }
-
-    private void setDelete(Connection connection) throws SQLException {
-        Statement statement;
-        try {
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        statement.executeUpdate(deleteValues(scanner));
-        System.out.println("Contact has been deleted");
-        statement.close();
+        getStatementCommand(connection, deleteValues(scanner), "Contact has been deleted");
     }
 
     private static String deleteValues(Scanner scanner){
         System.out.println("Which row to delete (id number):");
         int idDelete = scanner.nextInt();
-        return "DELETE FROM table2 WHERE id = " + idDelete + ";";
-    }
-
-    public void getDeleteBetween(Connection connection) throws SQLException {
-        setDeleteBetween(connection);
-    }
-
-    private void setDeleteBetween(Connection connection) throws SQLException {
-        Statement statement;
-        try {
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        statement.executeUpdate(deleteBetween(scanner));
-        System.out.println("Contacts rows have been deleted");
-        statement.close();
-    }
-
-    private static String deleteBetween(Scanner scanner){
-        System.out.println("Which rows in between to delete (id numbers):");
-        int idFrom = scanner.nextInt();
-        int idTo = scanner.nextInt();
-        return "DELETE FROM table2 WHERE id BETWEEN " + idFrom + " AND " + idTo + " ;";
+        return "DELETE FROM people WHERE id = " + idDelete + ";";
     }
 
 }
